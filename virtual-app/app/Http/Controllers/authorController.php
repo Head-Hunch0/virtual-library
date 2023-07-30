@@ -51,7 +51,7 @@ class authorController extends Controller
     public function EditAUthor($id){
         $data['author'] = Author::where("id", $id)->first();
         // dd($data['author']->Name);
-        return view('editauthor',$data);
+        return response()->json(['error' => 'Author not available right now'], 503);
     }
     //
 }

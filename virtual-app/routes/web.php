@@ -25,6 +25,7 @@ Route::get('/books', [bookController::class, 'GetBooks']);
 Route::get('/book/{id}', [bookController::class, 'GetBook']);
 Route::get('/add/book', [bookController::class, 'CreateBook']);
 Route::post('/store/book', [bookController::class, 'StoreBook']);
+Route::get('/edit/book/{id}', [bookController::class, 'BookAuthor']);
 
 
 Route::get('/authors', [authorController::class, 'GetAuthors']);

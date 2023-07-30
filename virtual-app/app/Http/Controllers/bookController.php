@@ -47,4 +47,10 @@ class bookController extends Controller
         // Redirect to index with a success message
         return redirect('/')->with('message', 'Book added successfully!');
     }
+
+    public function EditBook($id)
+    {
+        $data['book'] = Author::where("id", $id)->first();
+        return response()->json(['error' => 'Book not available right now'], 503);
+    }
 }

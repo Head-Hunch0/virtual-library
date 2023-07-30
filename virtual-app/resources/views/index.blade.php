@@ -65,27 +65,6 @@
         </div>
     </div>
 
-        {{-- <h5 class="btn btn-warning my-3">Updates</h5>
-
-    <div class="card my-3 mx-5">
-        <div class="card-header">
-            <h5>Update Book</h5>
-        </div>
-        <div class="card-body">
-            <p>Update a book.</p>
-            <a href="/edit/author" class="btn btn-outline-primary">Update</a>
-        </div>
-    </div>
-
-    <div class="card my-3 mx-5">
-        <div class="card-header">
-            <h5>Update Author</h5>
-        </div>
-        <div class="card-body">
-            <p>Update an author</p>
-            <a href="/edit/author" class="btn btn-outline-primary">Update</a>
-        </div>
-    </div> --}}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
