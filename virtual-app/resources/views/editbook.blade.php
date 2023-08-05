@@ -5,39 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <title>Edit Author </title>
+    <title>Edit Book </title>
 </head>
 <body>
     <div class="container mx-5 p-5">
         <div class="card shadow-lg mt-3 mx-5 card-primary">
             <div class="card-header">
-                <h4>Edit Author</h4>
+                <h4>Edit Book</h4>
             </div>
             <div class="card-body">
-    <form class="row g-3 needs-validation" method="post" action="/update/author/{{$auth->id}}" novalidate>
+    <form class="row g-3 needs-validation" method="post" action="/update/book/{{$book->id}}" novalidate>
       @method('PUT')
         @csrf
   <div class="col-md-12 px-5">
     <label for="validationCustom01" class="form-label">Name</label>
-    <input type="text" class="form-control" id="validationCustom01" value="{{$auth->Name}}" name="Name" required>
+    <input type="text" class="form-control" id="validationCustom01" value="{{$book->Name}}" name="Name" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col-md-12 px-5">
-    <label for="validationCustomUsername" class="form-label">Age</label>
+    <label for="validationCustomUsername" class="form-label">ISBN</label>
     <div class="input-group has-validation">
-      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" value="{{$auth->Age}}"name="Age" required>
+      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" value="{{$book->ISBN}}"name="ISBN" required>
       <div class="invalid-feedback">
         Please add your age.
       </div>
     </div>
   </div>
-  <div class="col-md-12 px-5">
-    <label for="validationCustom03" class="form-label">Country</label>
-    <input type="text" class="form-control" id="validationCustom03" name="Country" value="{{$auth->Country}}" required>
-    <div class="invalid-feedback">
-      Please provide a valid country.
+    <div class="col-md-12 px-5">
+    <label for="validationCustom03" class="form-label">Author</label>
+    <select class="form-select border-bottom border-0 border-dark-subtle" id="Author_id" name="Author"  type="Author" list="Authors" required>
+      <option class="text-center" value="" selected="" disabled="">Select author</option>
+      @foreach ($authors as $author)
+      <option class="text-center" value="{{$author->id}}" {{(@$author_id == $author->id) ? "selected" : ""}}>{{$author->Name}}</option>      
+      @endforeach
+    </select>    <div class="invalid-feedback">
+      Please provide a valid Author.
     </div>
   </div>
 

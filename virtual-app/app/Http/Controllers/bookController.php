@@ -50,7 +50,36 @@ class bookController extends Controller
 
     public function EditBook($id)
     {
-        $data['book'] = Author::where("id", $id)->first();
-        return response()->json(['error' => 'Book not available right now'], 503);
+        $data['book'] = Book::find($id);
+        $data['authors'] = Author::all();
+        if (!$data['book']) {
+
+            return response()->json(['error' => 'Book not available right now'], 503);
+        }
+        return view('editbook', $data);
+    }
+
+    public function UpdateBook(Request $request, $id)
+    { {
+
+            $Book = Book::find($id);
+
+            if (!$Book) {
+                return response()->json(['error' => 'Book not found'], 404);
+            }
+
+
+            $validatedData = $request->validate([
+                'Name' => 'required|string',
+                'ISBN' => 'required|min:13|integer',
+                'Author' => 'required|integer',
+
+            ]);
+
+            $Book->update($validatedData);
+
+
+            return redirect('/books')->with(['message' => 'Book updated successfully']);
+        }
     }
 }

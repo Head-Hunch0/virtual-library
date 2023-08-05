@@ -25,7 +25,8 @@ Route::get('/books', [bookController::class, 'GetBooks']);
 Route::get('/book/{id}', [bookController::class, 'GetBook']);
 Route::get('/add/book', [bookController::class, 'CreateBook']);
 Route::post('/store/book', [bookController::class, 'StoreBook']);
-Route::get('/edit/book/{id}', [bookController::class, 'BookAuthor']);
+Route::get('/edit/book/{id}', [bookController::class, 'EditBook']);
+Route::put('/update/book/{id}', [bookController::class, 'UpdateBook']);
 
 
 Route::get('/authors', [authorController::class, 'GetAuthors']);
@@ -33,3 +34,4 @@ Route::get('/author/{id}', [authorController::class, 'GetAuthor']);
 Route::get('/add/author', [authorController::class, 'CreateAuthor']);
 Route::post('/store/author', [authorController::class, 'StoreAuthor']);
 Route::get('/edit/author/{id}', [authorController::class, 'EditAuthor']);
+Route::put('/update/author/{id}', [authorController::class, 'UpdateAuthor']);

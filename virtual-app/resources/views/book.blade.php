@@ -22,6 +22,8 @@
                     <li class="list-group-item"> <span class="text-primary"> Name </span>  : {{$book->author->Name}}</li>
                     <li class="list-group-item"> <span class="text-primary">   Age </span> : {{$book->author->Age}}</li>
                     <li class="list-group-item"> <span class="text-primary"> Country of Origin </span>  : {{$book->author->Country}}</li>
+                    <br>
+                    <li class="list-group-item"><a href="/edit/book/{{$book->id}}" class="btn btn-warning">Edit </a></li>
                 </ul>
             </div>
             <div class="text-center mb-4">

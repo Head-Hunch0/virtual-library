@@ -49,9 +49,36 @@ class authorController extends Controller
     }
 
     public function EditAUthor($id){
-        $data['author'] = Author::where("id", $id)->first();
-        // dd($data['author']->Name);
-        return response()->json(['error' => 'Author not available right now'], 503);
+        $data['auth'] = Author::find($id);
+        if(!$data['auth']){
+            
+            return response()->json(['error' => 'Author not available right now'], 503);
+        }
+        return view('editauthor',$data);
     }
+
+    public function UpdateAuthor(Request $request , $id){
+        {
+
+        $Author = Author::find($id);
+
+        if (!$Author) {
+            return response()->json(['error' => 'Author not found'], 404);
+        }
+
+
+        $validatedData = $request->validate([
+            'Name' => 'required|string',
+            'Age' => 'required|integer|min:2',
+            'Country' => 'required|string',
+
+        ]);
+
+        $Author->update($validatedData);
+
+
+        return redirect('/authors')->with(['message' => 'Author updated successfully']);
+    }
+}
     //
 }
